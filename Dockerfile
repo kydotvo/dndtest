@@ -8,6 +8,7 @@ RUN set -eux; \
 		openssl \
 		pigz \
 		xz-utils \
+		curl \
 	; \
 	rm -rf /var/lib/apt/lists/*
 # Download latest nodejs binary
