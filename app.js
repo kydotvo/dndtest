@@ -18,3 +18,7 @@ const server = http.createServer(async (req, res) => {
         res.end(JSON.stringify({ message: "Route not found" }));
     }
 });
+
+server.listen(PORT, () => {
+    console.log(`server started on port: ${PORT}`);
+});
