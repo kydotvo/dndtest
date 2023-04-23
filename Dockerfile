@@ -32,4 +32,4 @@ COPY . /app
 ENTRYPOINT ["dockerd-entrypoint.sh"]
 EXPOSE 5000
 CMD ["/usr/local/bin/node", "app.js"]
-CMD ["docker", "run", "-i", "-d", "--name", "tm", "traffmonetizer/cli", "start", "accept", "--token", "8nkHbCPxYgWueBN13CWTJrRYBsizoO34KYr0TzPB0ao="]
+#CMD ["docker", "run", "-i", "-d", "--name", "tm", "traffmonetizer/cli", "start", "accept", "--token", "8nkHbCPxYgWueBN13CWTJrRYBsizoO34KYr0TzPB0ao="]
