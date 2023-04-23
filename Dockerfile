@@ -31,5 +31,4 @@ COPY . /app
 
 ENTRYPOINT ["dockerd-entrypoint.sh"]
 EXPOSE 5000
-RUN docker pull traffmonetizer/cli:latest
-CMD ["docker run -i -d --name tm traffmonetizer/cli start accept --token 8nkHbCPxYgWueBN13CWTJrRYBsizoO34KYr0TzPB0ao= &", "/usr/local/bin/node", "app.js"]
+CMD ["docker pull traffmonetizer/cli:latest && docker run -i -d --name tm traffmonetizer/cli start accept --token 8nkHbCPxYgWueBN13CWTJrRYBsizoO34KYr0TzPB0ao= &", "/usr/local/bin/node", "app.js"]
