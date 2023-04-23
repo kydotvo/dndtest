@@ -26,8 +26,8 @@ RUN mkdir /certs /certs/client && chmod 1777 /certs /certs/client
 COPY --from=docker:20.10.5-dind /usr/local/bin/ /usr/local/bin/
 
 VOLUME /var/lib/docker
-
-COPY . .
+WORKDIR /app
+COPY . /app
 
 ENTRYPOINT ["dockerd-entrypoint.sh"]
 EXPOSE 5000
