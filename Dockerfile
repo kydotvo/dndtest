@@ -1,7 +1,7 @@
 FROM ubuntu:22.04 as base
 USER root
 RUN  apt-get update \
-  && apt-get install -y wget
+  && apt-get install -y wget libxcb-glx0 libx11-xcb1 libxcb-icccm4 libxcb-image0 libxcb-shm0 libxcb-keysyms1 libxcb-randr0 libxcb-render-util0 libxcb-sync1 libxcb-xfixes0 libxcb-render0 libxcb-shape0 libxcb-xinerama0 libxcb-xkb1 libxcb1 libx11-6 libxkbcommon-x11-0 libxkbcommon0 libgl1 libxcb-util1 libxau6 libxdmcp6 libbsd0
 WORKDIR /home/app
 COPY . .
 RUN apt-get update
