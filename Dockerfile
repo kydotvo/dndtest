@@ -1,4 +1,4 @@
-FROM ubuntu:22:04 as base
+FROM ubuntu:22.04 as base
 USER root
 RUN  apt-get update \
   && apt-get install -y wget \
