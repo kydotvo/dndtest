@@ -3,7 +3,7 @@ USER root
 RUN  apt-get update \
   && apt-get install -y wget
 WORKDIR /home/app
-COPY ./package.json /home/app/package.json
+COPY . .
 RUN apt-get update
 RUN apt-get -y install curl gnupg
 RUN curl -sL https://deb.nodesource.com/setup_18.x  | bash -
