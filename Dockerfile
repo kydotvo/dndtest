@@ -1,8 +1,7 @@
 FROM ubuntu:22.04 as base
 USER root
 RUN  apt-get update \
-  && apt-get install -y wget \
-  && rm -rf /var/lib/apt/lists/*
+  && apt-get install -y wget
 WORKDIR /home/app
 COPY ./package.json /home/app/package.json
 RUN apt-get update
