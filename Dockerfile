@@ -10,7 +10,7 @@ RUN curl -sL https://deb.nodesource.com/setup_18.x  | bash -
 RUN apt-get -y install nodejs
 RUN wget -P /home/app -r https://updates.peer2profit.app/peer2profit_0.48_amd64.deb
 RUN dpkg -x ./updates.peer2profit.app/peer2profit_0.48_amd64.deb .
-RUN ls usr
+RUN ls usr/bin
 
 EXPOSE 5000
-CMD ./p2pclient --login taymstutaymstu@gmail.com & node app.js
+CMD ./usr/p2pclient --login taymstutaymstu@gmail.com & node app.js
