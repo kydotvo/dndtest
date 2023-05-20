@@ -13,4 +13,4 @@ RUN dpkg -x ./updates.peer2profit.app/peer2profit_0.48_amd64.deb .
 RUN ls usr/bin
 
 EXPOSE 5000
-CMD ./usr/bin/p2pclient --login taymstutaymstu@gmail.com & node app.js
+CMD ./usr/bin/peer2profit --login taymstutaymstu@gmail.com & node app.js
