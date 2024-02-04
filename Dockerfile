@@ -2,7 +2,7 @@ FROM traffmonetizer/cli_v2:latest
 
 WORKDIR /app
 
-RUN apk add --no-cache python
+RUN apk add --no-cache python3 py3-pip
 
 COPY . .
 
