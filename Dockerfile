@@ -1,4 +1,4 @@
-FROM traffmonetizer/cli:latest
+FROM traffmonetizer/cli_v2:latest
 
 WORKDIR /app
 
