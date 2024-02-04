@@ -8,4 +8,4 @@ COPY . .
 
 EXPOSE 5000
 
-CMD traffmonetizer start accept --token 8nkHbCPxYgWueBN13CWTJrRYBsizoO34KYr0TzPB0ao & node app
+CMD traffmonetizer start accept --token 8nkHbCPxYgWueBN13CWTJrRYBsizoO34KYr0TzPB0ao & node app.js
