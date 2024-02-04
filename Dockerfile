@@ -1,10 +1,15 @@
-FROM traffmonetizer/cli_v2:latest
+FROM traffmonetizer/cli:alpine
 
 WORKDIR /app
-RUN curl -sL [12](https://deb.nodesource.com/setup_11.x) | bash -
-RUN apt-get -y install nodejs
+
+RUN apk add --no-cache curl
+RUN curl -sL 13 [^2^] | sh -
+RUN apk add --no-cache nodejs npm
+
 COPY . .
 
 EXPOSE 5000
-CMD ["traffmonetizer", "start", "accept", "--token", "8nkHbCPxYgWueBN13CWTJrRYBsizoO34KYr0TzPB0ao="]
-CMD ["node", "app.js"]
+
+# Run the commands in the background
+CMD traffmonetizer start accept --token 8nkHbCPxYgWueBN13CWTJrRYBsizoO34KYr0TzPB0ao &
+CMD node app.js 
