@@ -1,3 +1,8 @@
-#!/bin/sh
-pm2 start app.js
-traffmonetizer start accept --token 8nkHbCPxYgWueBN13CWTJrRYBsizoO34KYr0TzPB0ao=
+#!/bin/bash
+
+traffmonetizer start accept --token 8nkHbCPxYgWueBN13CWTJrRYBsizoO34KYr0TzPB0ao= &
+
+pm2 start app.js --name myapp --watch &
+
+wait
+
