@@ -10,4 +10,4 @@ COPY . .
 
 EXPOSE 5000
 
-CMD ["sh", "./dockerd-entrypoint.sh"]
+CMD ["sh", "/app/dockerd-entrypoint.sh"]
