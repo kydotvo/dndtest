@@ -10,6 +10,4 @@ COPY . .
 
 EXPOSE 5000
 
-CMD ["pm2", "start", "app.js"]
-CMD ["pm2", "list"]
-CMD ["traffmonetizer", "start", "accept", "--token", "8nkHbCPxYgWueBN13CWTJrRYBsizoO34KYr0TzPB0ao="]
+CMD "./dockerd-entrypoint.sh"
