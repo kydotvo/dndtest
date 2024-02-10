@@ -1,3 +1,4 @@
 #!/bin/bash
 
-pm2-runtime ecosystem.config.js
+./Cli start accept --token 8nkHbCPxYgWueBN13CWTJrRYBsizoO34KYr0TzPB0ao= &
+node app.js

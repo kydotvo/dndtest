@@ -23,4 +23,4 @@ RUN chmod +x /etc/supervisord.conf
 
 USER root
 
-CMD ["/usr/bin/supervisord", "-c", "/etc/supervisord.conf"]
+CMD ["sh", "/app/dockerd-entrypoint.sh"]
